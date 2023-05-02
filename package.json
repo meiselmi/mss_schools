@@ -1,0 +1,16 @@
+{
+  "name": "site-html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@dogstudio/highway": "^2.2.1",
+    "gsap": "^3.11.5",
+    "parcel-bundler": "^1.12.5"
+  }
+}

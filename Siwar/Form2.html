@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .container{
+            display: block;
+            width: 90%;
+            margin-left: 70px;
+        }
+        input[type=text], select, input[type=email], input[type=number], textarea{
+            border: 2px solid #111;
+            background-color: #ffffff;
+            padding: 15px 14px;
+            -webkit-appearance: none;
+            -moz-box-sizing: border-box;
+    width: 100%;
+    border-radius: 4px;
+        }
+        label {
+      padding: 12px 12px 12px 0;
+      display: inline-block;
+    }
+        input[type=text]:hover, input[type=email]:hover, input[type=number]:hover{
+            background-color: rgb(226, 226, 226);
+        }
+        input[type=text]:focus, input[type=email]:focus, input[type=number]:focus{
+            background-color: whitesmoke;
+        }
+        .select{
+            float: left;
+            width: 100%;
+            margin-top: 6px;
+            cursor: pointer;
+        }
+        input[type=submit]{
+            background-color: #CEAD6D;
+            padding: 12px 14px;
+            float: center;
+            width: 25%;
+            border-radius: 4px;
+            border: 2px solid #CEAD6D;
+            margin: 8px 500px;
+            cursor: pointer;
+            font-size: 25px;
+            color:#ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        input[type=submit]:hover{
+            background-color: #a18b5e;
+            box-shadow: 2px white;
+            
+        }
+        input:focus:invalid {
+      outline: none;
+    }
+    .invalid {
+        color: rgb(0, 229, 255);
+        border: 2px solid rgb(255, 0, 0);
+    }
+    
+    
+    
+        
+    </style>
+    
+    <body>
+     <script>
+const form = document.querySelector("form");
+const fnameInput = form.querySelector("#fname");
+const lnameInput = form.querySelector("#lname");
+const emailInput = form.querySelector("#email");
+const numberInput = form.querySelector("#number");
+const jobInput = form.querySelector("#fjob");
+const countryInput = form.querySelector("#country");
+const genderInputs = form.querySelectorAll("input[name='gender']");
+const questionInput = form.querySelector("#question");
+const questInput = form.querySelector("#Quest");
+
+// Define a function to validate the form data
+function validateForm(event) {
+  // Prevent the form from submitting
+  event.preventDefault();
+
+  // Define a variable to track whether the form is valid
+  let isValid = true;
+
+  // Validate the first name
+  if (fnameInput.value.trim() === "") {
+    fnameInput.classList.add("error");
+    isValid = false;
+  } else {
+    fnameInput.classList.remove("error");
+  }
+
+  // Validate the last name
+  if (lnameInput.value.trim() === "") {
+    lnameInput.classList.add("error");
+    isValid = false;
+  } else {
+    lnameInput.classList.remove("error");
+  }
+
+  // Validate the email
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(emailInput.value)) {
+    emailInput.classList.add("error");
+    isValid = false;
+  } else {
+    emailInput.classList.remove("error");
+  }
+
+  // Validate the phone number
+  const numberPattern = /^[0-9]{10}$/;
+  if (!numberPattern.test(numberInput.value)) {
+    numberInput.classList.add("error");
+    isValid = false;
+  } else {
+    numberInput.classList.remove("error");
+  }
+
+  // Validate the job
+  if (jobInput.value.trim() === "") {
+    jobInput.classList.add("invalid");
+    isValid = false;
+  } else {
+    jobInput.classList.remove("invalid");
+  }
+
+  // Validate the country
+  if (countryInput.value === "") {
+    countryInput.classList.add("invalid");
+    isValid = false;
+  } else {
+    countryInput.classList.remove("invalid");
+  }
+
+  // Validate the gender
+  let genderSelected = false;
+  for (let i = 0; i < genderInputs.length; i++) {
+    if (genderInputs[i].checked) {
+      genderSelected = true;
+      break;
+    }
+  }
+  if (!genderSelected) {
+    genderInputs[0].classList.add("invalid");
+    isValid = false;
+  } else {
+    genderInputs[0].classList.remove("invalid");
+  }
+
+  // Validate the question
+  if (questionInput.value === "") {
+    questionInput.classList.add("invalid");
+    isValid = false;
+  } else {
+    questionInput.classList.remove("invalid");
+  }
+
+  // Validate the question
+  if (questInput.value.trim() === "") {
+    questInput.classList.add("invalid");
+    isValid = false;
+  } else {
+    questInput.classList.remove("invalid");
+  }
+
+  // If the form is valid, submit it
+  if (isValid) {
+    form.submit();
+  }
+}
+
+// Add an event listener to the form submit button
+form.addEventListener("submit", validateForm);
+     </script>
+        
+        <div class="container">
+            <form action="/action_page.php" novalidate onsubmit="return validateForm()">
+                
+            <div class="row">
+              <div>         
+                <legend><label for="name">First Name</label><abbr title="Ce champ est obligatoire">*</abbr></legend>
+              
+              <input type="text" id="fname" name="firstname" placeholder="Your name..">
+              </div>
+            
+               <legend><label for="lname">Last Name</label><abbr title="Ce champ est obligatoire">*</abbr></legend>
+              
+                <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+                <div>
+                   <legend><label for="email">Your Email</label><abbr title="Ce champ est obligatoire">*</abbr></legend>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div>
+                    <legend><label for="Number">Phone Number</label><abbr title="Ce champ est obligatoire">*</abbr></legend>
+                    <input type="number" id="number" name="Phonenb" placeholder="Your Phone Number" required>
+                </div>
+                <div>
+                   <legend><label for="job">Your Work</label><abbr title="Ce champ est obligatoire">*</abbr></legend>
+                    <input type="text" id="fjob" name="yourjob" placeholder="Your Work" required>
+                </div>
+                <div class="select">
+               <label for="country">Country</label>
+              <br>
+                <div>
+                
+                <select id="country" name="country">
+                  <option value="australia">Tunisia</option>
+                  <option value="France">France</option>
+                  <option value="Autre">Other</option>
+    
+                </select></div>
+                </div>
+                <div>
+                    <label for="gender">Your Gender</label>
+                    <input type="radio" name="gender" value="female" required name="title" id="fm" >Female
+                    <input type="radio" name="gender" value="male" required name="title" id="m">Male
+                    </div>
+                <div class="row">
+                <legend><label> WHICH PROJECT IS YOUR QUESTION ABOUT ?</label><abbr title="Ce champ est obligatoire">*</abbr></legend>
+                <br>
+                    <select  id="question" name="question">
+                        <option value="GABON"> Libreville Project</option>
+                        <option value="SENEGAL"> Dakar Project</option>
+                        <option value="UGANDA"> Kampala School</option>
+                    </select>
+              </div>
+              <div>
+                <legend><label for="quest"> Your Question </label><abbr title="Ce champ est obligatoire">*</abbr></legend>
+                <textarea name="Question" id="Quest" cols="30" rows="10" placeholder="Type your question here..."></textarea>          </div>
+            </div>
+                    </div>
+            <div class="row">
+              <input type="submit" value="SUBMIT">
+            </div>
+            
+        </form>        
+          </div>
+        
+</body>
+</html>

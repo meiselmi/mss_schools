@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="nav.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   
+</head>
+<body>
+   
+      
+      <div class="scrolling-text">
+        <span>Welcome to our website MSS SCHOOLS,Donate please to help children in Africa to have their right in education.</span>
+      </div>
+      <DIV class="partie1">
+        <img class="image"
+    
+    src="R (1).jpg"
+    alt=""
+  > 
+  <nav>
+    <div class="wrapper">
+      <div class="logo"><a href="#">MSS SCHOOLS</a></div>
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+      <ul class="nav-links">
+        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+       
+        <li>
+            <a href="#" class="desktop-item">OUR STORY</a>
+            
+            <label for="showDrop" class="mobile-item">OUR STORY</label>
+            <ul class="drop-menu">
+              <li><a href="partie1sahar/partie1.html">ABOUT US</a></li>
+              <li><a href="partie2sahar/partie2.html">SCHOOL DESIGN</a></li>
+              <li><a href="partie3sahar/partie3.html">GIVING MODEL</a></li>
+            </ul>
+          </li>
+        <li>
+          <a href="#" class="desktop-item">OUR WORK</a>
+          
+          <label for="showWork" class="mobile-item">OUR WORK</label>
+          <ul class="drop-menu">
+            <li><a href="Siwar/WHY.html">WHY SCHOOLS</a></li>
+            <li><a href="Siwar/Approach.html">OUR APPROACH</a></li>
+            <li><a href="Siwar/Projet.html">COMMUNITY TRANSFORMATION</a></li>
+            
+          </ul>
+        </li>
+        <li>
+            <a href="#" class="desktop-item">GET INVOLVED</a>
+            
+            <label for="showDrop" class="mobile-item">GET INVOLVED</label>
+            <!-- IT MAKE THE GETINVOLVED BUTTON EPEAR IN MOBILE BAR -->
+            <ul class="drop-menu">
+              <li><a href="get_involved.html">SPONSOR A SCHOOL</a></li>
+              <li><a href="business.html">BECOME PARTNER</a></li>
+              <li><a href="business1.html">GIVE MONTHELY</a></li>
+              
+            </ul>
+          </li>
+        <li>
+            <li><a href="LOGIN/login.php">LOGIN </a></li>
+            <li><a href="Siwar/Form.php">CONTACT US</a></li>
+            <li><a href="givingsub.php"> DONATE NOW</a></li>
+      </ul>
+      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+    </div>
+  </nav>
+  <p class="building" >BUILDING</p>
+  <div id="typing-effect" class="effect">SCHOOLS</div>
+  <P class="disc"> With your support, we are providing quality <br> schools to students around the world. </P>
+ 
+
+
+  </DIV>
+
+
+ 
+
+</body>
+<script>
+const container = document.getElementById("typing-effect");
+
+  function changeToLegacies() {
+    container.textContent = " LEGACIES";
+    setTimeout(changeToFutures, 1000);
+  }
+  
+  function changeToFutures() {
+    container.textContent = " FUTURES";
+    setTimeout(changeToschools, 1000);
+  }
+  function changeToschools() {
+    container.textContent = " SCHOOLS";
+    setTimeout(changeToLegacies, 1000);
+  }
+  
+  window.addEventListener("load", function() {
+    setTimeout(changeToschools, 1000);
+  });
+  </script>
+</html>

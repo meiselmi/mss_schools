@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+     
+    <div class="partie1">
+        <img class="image" src="about.jpg"alt=""> 
+     <nav>
+  <ul>
+    <li class="story"> <a href="#story"> STORY</a></li>
+    <li class="work"><a href="#work">OUR WORK</a></li>
+    <li class="involved"><a href="#involved"> INVOLVED  </a></li>
+    <li> <a href="#give"><button class="give">  GIVE NOW</button> </a></li>
+   
+  </ul>
+     </nav>
+      </div>
+  
+</body>
+</html>

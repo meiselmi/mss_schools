@@ -1,0 +1,183 @@
+<?php
+
+Check if the form was submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  // Get the values from the form
+  $fname = $_POST["firstname"];
+  $lname = $_POST["lastname"];
+  $email = $_POST["email"];
+  $phonenumber = $_POST["Phonenb"];
+  $job = $_POST["yourjob"];
+  $country = $_POST["country"];
+  $gender = $_POST["gender"];
+  $question = $_POST["question"];
+  $quest = $_POST["Question"];
+
+  // Do something with the form data (e.g. send an email)
+
+  // Redirect the user to a confirmation page
+  header("Location: confirmation_page.php");
+  exit;
+}
+
+?>
+
+//////////////////////////
+// Get references to the form and its input fields
+const form = document.querySelector("form");
+const fnameInput = form.querySelector("#fname");
+const lnameInput = form.querySelector("#lname");
+const emailInput = form.querySelector("#email");
+const numberInput = form.querySelector("#number");
+const jobInput = form.querySelector("#fjob");
+const countryInput = form.querySelector("#country");
+const genderInputs = form.querySelectorAll("input[name='gender']");
+const questionInput = form.querySelector("#question");
+const questInput = form.querySelector("#Quest");
+
+// Define a function to validate the form data
+function validateForm(event) {
+  // Prevent the form from submitting
+  event.preventDefault();
+
+  // Define a variable to track whether the form is valid
+  let isValid = true;
+
+  // Validate the first name
+  if (fnameInput.value.trim() === "") {
+    fnameInput.classList.add("error");
+    isValid = false;
+  } else {
+    fnameInput.classList.remove("error");
+  }
+
+  // Validate the last name
+  if (lnameInput.value.trim() === "") {
+    lnameInput.classList.add("error");
+    isValid = false;
+  } else {
+    lnameInput.classList.remove("error");
+  }
+
+  // Validate the email
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(emailInput.value)) {
+    emailInput.classList.add("error");
+    isValid = false;
+  } else {
+    emailInput.classList.remove("error");
+  }
+
+  // Validate the phone number
+  const numberPattern = /^[0-9]{10}$/;
+  if (!numberPattern.test(numberInput.value)) {
+    numberInput.classList.add("error");
+    isValid = false;
+  } else {
+    numberInput.classList.remove("error");
+  }
+
+  // Validate the job
+  if (jobInput.value.trim() === "") {
+    jobInput.classList.add("error");
+    isValid = false;
+  } else {
+    jobInput.classList.remove("error");
+  }
+
+  // Validate the country
+  if (countryInput.value === "") {
+    countryInput.classList.add("error");
+    isValid = false;
+  } else {
+    countryInput.classList.remove("error");
+  }
+
+  // Validate the gender
+  let genderSelected = false;
+  for (let i = 0; i < genderInputs.length; i++) {
+    if (genderInputs[i].checked) {
+      genderSelected = true;
+      break;
+    }
+  }
+  if (!genderSelected) {
+    genderInputs[0].classList.add("error");
+    isValid = false;
+  } else {
+    genderInputs[0].classList.remove("error");
+  }
+
+  // Validate the question
+  if (questionInput.value === "") {
+    questionInput.classList.add("error");
+    isValid = false;
+  } else {
+    questionInput.classList.remove("error");
+  }
+
+  // Validate the question
+  if (questInput.value.trim() === "") {
+    questInput.classList.add("error");
+    isValid = false;
+  } else {
+    questInput.classList.remove("error");
+  }
+
+  // If the form is valid, submit it
+  if (isValid) {
+    form.submit();
+  }
+}
+
+// Add an event listener to the form submit button
+form.addEventListener("submit", validateForm);
+//////////////////////////////
+
+<script>
+            function validateForm() {
+              var fname = document.getElementById("fname").value;
+              var lname = document.getElementById("lname").value;
+              var email = document.getElementById("email").value;
+              var number = document.getElementById("number").value;
+              var job = document.getElementById("fjob").value;
+              var question = document.getElementById("question").value;
+              var quest = document.getElementById("Quest").value;
+              
+              if (fname == "") {
+                alert("First name must be filled out");
+                return false;
+              }
+              
+              if (lname == "") {
+                alert("Last name must be filled out");
+                return false;
+              }
+              
+              if (email == "") {
+                alert("Email must be filled out");
+                return false;
+              }
+              
+              if (number == "") {
+                alert("Phone number must be filled out");
+                return false;
+              }
+              
+              if (job == "") {
+                alert("Work must be filled out");
+                return false;
+              }
+              
+              if (question == "") {
+                alert("Question about project must be selected");
+                return false;
+              }
+              
+              if (quest == "") {
+                alert("Question must be filled out");
+                return false;
+              }
+            }
+          </script>
